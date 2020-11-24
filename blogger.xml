@@ -40,17 +40,15 @@
             <asign/>
         </section>
         <footer>
-            <b:section id='footer' showaddelement='no'>
+            <b:section class='container' id='footer' showaddelement='no'>
                 <b:widget id='Attribution1' locked='true' title='' type='Attribution'>
                     <b:widget-settings>
                         <b:widget-setting name='copyright'/>
                     </b:widget-settings>
                     <b:includable id='main'>
-                        <div class='container'>
-                            <b:if cond='data:attribution != &quot;&quot;'>
-                                <data:attribution/>
-                            </b:if>
-                        </div>
+                        <b:if cond='data:attribution != &quot;&quot;'>
+                            <data:attribution/>
+                        </b:if>
                     </b:includable>
                 </b:widget>
             </b:section>
