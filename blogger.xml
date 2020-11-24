@@ -11,7 +11,9 @@
         <title>
             <data:blog.pageTitle/>
         </title>
-        <b:skin><![CDATA[]]></b:skin>
+        <b:skin><![CDATA[
+        .quickedit{display:none;}
+        ]]>        </b:skin>
         <b:template-skin/>
         <b:include data='blog' name='google-analytics'/>
         <!--css begin-->
