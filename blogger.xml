@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE html>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
 <html b:css='false' b:js='false' b:version='2' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'
     xmlns='http://www.w3.org/1999/xhtml'
     xmlns:b='http://www.google.com/2005/gml/b'
@@ -12,7 +13,9 @@
             <data:blog.pageTitle/>
         </title>
         <b:skin><![CDATA[
+            
         .quickedit{display:none;}
+        
         ]]>        </b:skin>
         <b:template-skin/>
         <b:include data='blog' name='google-analytics'/>
@@ -21,7 +24,7 @@
         <!--css end-->
     </head>
     <body>
-        <header>
+        <header class='fixed-top'>
             <nav class='navbar navbar-expand-sm navbar-dark bg-dark'>
                 <div class='container'>
                     <a class='navbar-brand' href='/'>
@@ -33,27 +36,68 @@
         <section>
             <main>
                 <b:section class='main' id='main'>
-                    <b:widget id='Blog1' type='Blog' version='1'>
-                        <b:widget-settings/>
+                    <b:widget id='Blog1' locked='false' title='Blog Posts' type='Blog' version='1'>
+                        <b:widget-settings>
+                            <b:widget-setting name='commentLabel'>评论</b:widget-setting>
+                            <b:widget-setting name='showShareButtons'>false</b:widget-setting>
+                            <b:widget-setting name='authorLabel'>发帖者</b:widget-setting>
+                            <b:widget-setting name='disableGooglePlusShare'>true</b:widget-setting>
+                            <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+                            <b:widget-setting name='timestampLabel'>时间&#65306;</b:widget-setting>
+                            <b:widget-setting name='reactionsLabel'>反应&#65306;</b:widget-setting>
+                            <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+                            <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+                            <b:widget-setting name='showLocation'>false</b:widget-setting>
+                            <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+                            <b:widget-setting name='postsPerAd'>1</b:widget-setting>
+                            <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+                            <b:widget-setting name='backlinksLabel'>指向此博文的链接</b:widget-setting>
+                            <b:widget-setting name='showDateHeader'>true</b:widget-setting>
+                            <b:widget-setting name='style.textcolor'>#000000</b:widget-setting>
+                            <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+                            <b:widget-setting name='style.urlcolor'>#008000</b:widget-setting>
+                            <b:widget-setting name='postLocationLabel'>地点:</b:widget-setting>
+                            <b:widget-setting name='showAuthor'>true</b:widget-setting>
+                            <b:widget-setting name='style.linkcolor'>#0000ff</b:widget-setting>
+                            <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+                            <b:widget-setting name='showLabels'>true</b:widget-setting>
+                            <b:widget-setting name='postLabelsLabel'>标签&#65306;</b:widget-setting>
+                            <b:widget-setting name='showBacklinks'>true</b:widget-setting>
+                            <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+                            <b:widget-setting name='showReactions'>false</b:widget-setting>
+                        </b:widget-settings>
                         <b:includable id='main' var='top'/>
+                        <b:includable id='backlinkDeleteIcon' var='backlink'/>
+                        <b:includable id='backlinks' var='post'/>
+                        <b:includable id='comment-form' var='post'/>
+                        <b:includable id='commentDeleteIcon' var='comment'/>
+                        <b:includable id='comment_count_picker' var='post'/>
+                        <b:includable id='comment_picker' var='post'/>
+                        <b:includable id='comments' var='post'/>
+                        <b:includable id='feedLinks'/>
+                        <b:includable id='feedLinksBody' var='links'/>
+                        <b:includable id='iframe_comments' var='post'/>
+                        <b:includable id='mobile-index-post' var='post'/>
+                        <b:includable id='mobile-main' var='top'/>
+                        <b:includable id='mobile-nextprev'/>
+                        <b:includable id='mobile-post' var='post'/>
+                        <b:includable id='nextprev'/>
+                        <b:includable id='post' var='post'/>
+                        <b:includable id='postQuickEdit' var='post'/>
+                        <b:includable id='shareButtons' var='post'/>
+                        <b:includable id='status-message'/>
+                        <b:includable id='threaded-comment-form' var='post'/>
+                        <b:includable id='threaded_comment_js' var='post'/>
+                        <b:includable id='threaded_comments' var='post'/>
                     </b:widget>
                 </b:section>
             </main>
             <asign/>
         </section>
-        <footer>
-            <b:section class='container' id='footer' showaddelement='no'>
-                <b:widget id='Attribution1' locked='true' title='' type='Attribution'>
-                    <b:widget-settings>
-                        <b:widget-setting name='copyright'/>
-                    </b:widget-settings>
-                    <b:includable id='main'>
-                        <b:if cond='data:attribution != &quot;&quot;'>
-                            <data:attribution/>
-                        </b:if>
-                    </b:includable>
-                </b:widget>
-            </b:section>
+        <footer class='fixed-bottom text-light bg-dark'>
+            <div class='container'>
+                <p class='p-3 text-center'>Power by TonayuDash.</p>
+            </div>
         </footer>
         <!--all end-->
         <!--scripts begin-->
