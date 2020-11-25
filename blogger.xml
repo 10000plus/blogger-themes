@@ -100,8 +100,8 @@
                 </section>
                 <footer>
                     <innerfooter class='container'>
-                        <div class='text-light bg-dark'>
-                            <p class='p-3 text-center'>Power by TonayuDash.</p>
+                        <div>
+                            <p>Power by TonayuDash.</p>
                         </div>
                     </innerfooter>
                 </footer>
