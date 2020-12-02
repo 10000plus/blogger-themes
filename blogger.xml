@@ -988,7 +988,7 @@
                     <li class='uk-parent'>
                       <a expr:href='data:interval.url'>
                         <data:interval.name/>
-(                        <data:interval.post-count/>
+(                       <data:interval.post-count/>
 )</a>
                       <ul class='uk-nav-sub'>
                         <b:include cond='data:interval.data' data='interval.data' name='interval'/>
@@ -1060,9 +1060,8 @@
                               <a expr:href='data:label.url'>
                                 <data:label.name/>
                                 <b:if cond='data:showFreqNumbers'>
-                                  <span>
-                                    <data:label.count/>
-                                  </span>
+                              (                                    <data:label.count/>
+                               )
                                 </b:if>
                               </a>                             
                             </li>
@@ -1071,9 +1070,8 @@
                               <a expr:href='data:label.url'>
                                 <data:label.name/>                              
                               <b:if cond='data:showFreqNumbers'>
-                                <span>
-                                  <data:label.count/>
-                                </span>
+                          (                                  <data:label.count/>
+                           )
                               </b:if>
                               </a>
                             </li>
