@@ -969,7 +969,7 @@
                   </div>
                 </b:includable>               
                 <b:includable id='interval' var='intervalData'>
-                  <ul class='uk-nav-default uk-nav-parent-icon' uk-nav=''>
+                  <ul class='uk-nav uk-nav-default uk-nav-parent-icon' uk-nav=''>
                     <b:loop values='data:intervalData' var='interval'>
                       <li class='uk-parent'>
                         <a expr:href='data:interval.url'>
@@ -1053,30 +1053,29 @@
                       </div>
                     </b:if>
                     <div hidden='' id='toggle-bloglabel' class='uk-margin-small-top'>
-                      <ul class='uk-list uk-list-collapse'>
+                      <ul class='uk-nav uk-nav-default' uk-nav=''>
                         <b:loop values='data:labels' var='label'>
                           <b:if cond='data:blog.url == data:label.url'>
                             <li class='uk-active'>
                               <a expr:href='data:label.url'>
                                 <data:label.name/>
-                              </a>
-                              <b:if cond='data:showFreqNumbers'>
-                                <span>
-                                  <data:label.count/>
-                                </span>
-)                                
-                              </b:if>
+                                <b:if cond='data:showFreqNumbers'>
+                                  <span>
+                                    <data:label.count/>
+                                  </span>
+                                </b:if>
+                              </a>                             
                             </li>
                             <b:else/>
                             <li>
                               <a expr:href='data:label.url'>
-                                <data:label.name/>
-                              </a>
+                                <data:label.name/>                              
                               <b:if cond='data:showFreqNumbers'>
                                 <span>
                                   <data:label.count/>
                                 </span>
                               </b:if>
+                              </a>
                             </li>
                           </b:if>
                         </b:loop>
