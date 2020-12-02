@@ -948,7 +948,7 @@
                   <b:widget-setting name='showStyle'>HIERARCHY</b:widget-setting>
                   <b:widget-setting name='yearPattern'>yyyy</b:widget-setting>
                   <b:widget-setting name='showWeekEnd'>true</b:widget-setting>
-                  <b:widget-setting name='monthPattern'>MMMM yyyy</b:widget-setting>
+                  <b:widget-setting name='monthPattern'>MMMM</b:widget-setting>
                   <b:widget-setting name='dayPattern'>MMM dd</b:widget-setting>
                   <b:widget-setting name='weekPattern'>MM/dd</b:widget-setting>
                   <b:widget-setting name='chronological'>false</b:widget-setting>
@@ -967,18 +967,7 @@
                       <b:include cond='data:style == &quot;HIERARCHY&quot;' data='data' name='interval'/>
                     </div>
                   </div>
-                </b:includable>
-                <b:includable id='flat' var='data'>
-                  <ul class='flat'>
-                    <b:loop values='data:data' var='i'>
-                      <li class='archivedate'>
-                        <a expr:href='data:i.url'>
-                          <data:i.name/>
-                        </a> <data:i.post-count/>
-                      </li>
-                    </b:loop>
-                  </ul>
-                </b:includable>
+                </b:includable>               
                 <b:includable id='interval' var='intervalData'>
                   <ul class='uk-nav-default uk-nav-parent-icon' uk-nav=''>
                     <b:loop values='data:intervalData' var='interval'>
@@ -998,8 +987,9 @@
                   <b:loop values='data:intervalData' var='interval'>
                     <li class='uk-parent'>
                       <a expr:href='data:interval.url'>
-                        <data:interval.name/></a> 
-                      <data:interval.post-count/>
+                        <data:interval.name/>
+(                        <data:interval.post-count/>
+)</a>
                       <ul class='uk-nav-sub'>
                         <b:include cond='data:interval.data' data='interval.data' name='interval'/>
                       </ul>
