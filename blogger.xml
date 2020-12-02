@@ -956,7 +956,7 @@
                   <b:widget-setting name='frequency'>MONTHLY</b:widget-setting>
                 </b:widget-settings>
                 <b:includable id='main'>
-                  <div class='uk-margin'>
+                  <div class='uk-panel uk-margin'>
                     <b:if cond='data:title != &quot;&quot;'>
                       <div uk-toggle='target: #toggle-blogarchive'>
                         <span class='uk-margin-small-right' uk-icon='folder'/>
@@ -1055,7 +1055,7 @@
                   <b:widget-setting name='showFreqNumbers'>true</b:widget-setting>
                 </b:widget-settings>
                 <b:includable id='main'>
-                  <div class='uk-margin'>
+                  <div class='uk-panel uk-margin'>
                     <b:if cond='data:title != &quot;&quot;'>
                       <div uk-toggle='target: #toggle-bloglabel'>
                         <span class='uk-margin-small-right' uk-icon='tag'/>
