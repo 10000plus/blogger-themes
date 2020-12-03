@@ -1291,6 +1291,7 @@
     </div>
   </footer>
 </div>
+<a href="javascript:void(0);" ui-icon='icon:chevron-up;' uk-totop='' uk-scroll='' class='uk-icon-button uk-position-bottom-right uk-position-fixed'></a>
 <!--all end-->
 <!--scripts begin-->
 <script src='https://cdn.jsdelivr.net/npm/uikit@3.5.10/dist/js/uikit.min.js'/>
