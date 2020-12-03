@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
 <html b:css='false' b:js='false' b:version='2' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'
   xmlns='http://www.w3.org/1999/xhtml'
@@ -749,7 +749,7 @@
         if (entry && entry.gd$extendedProperty) {
           for (var k in entry.gd$extendedProperty) {
             if (entry.gd$extendedProperty[k].name == 'blogger.contentRemoved') {
-              return '<span class="deleted-comment">' + text + '</span>';
+              return '<span class='deleted-comment'>' + text + '</span>';
             }
           }
         }
@@ -958,12 +958,14 @@
                 <b:includable id='main'>
                   <div class='uk-panel uk-margin'>
                     <b:if cond='data:title != &quot;&quot;'>
-                      <div uk-toggle='target: #toggle-blogarchive'>
+                      <div uk-toggle='target: .toggle-archive'>
                         <span class='uk-margin-small-right' uk-icon='folder'/>
                         <data:title/>
+                        <span class='toggle-archive uk-float-right' uk-icon='chevron-left'/>
+                        <span class='toggle-archive uk-float-right' uk-icon='chevron-down' hidden=''/>
                       </div>
                     </b:if>
-                    <div hidden='' id='toggle-blogarchive' class='uk-margin-small-top'>
+                    <div hidden='' id='toggle-blogarchive' class='toggle-archive uk-margin-small-top'>
                       <b:include cond='data:style == &quot;HIERARCHY&quot;' data='data' name='interval'/>
                     </div>
                   </div>
@@ -1047,12 +1049,14 @@
                 <b:includable id='main'>
                   <div class='uk-panel uk-margin'>
                     <b:if cond='data:title != &quot;&quot;'>
-                      <div uk-toggle='target: #toggle-bloglabel'>
+                      <div uk-toggle='target: .toggle-label'>
                         <span class='uk-margin-small-right' uk-icon='tag'/>
                         <data:title/>
+                        <span class='toggle-label uk-float-right' uk-icon='chevron-left'/>
+                        <span class='toggle-label uk-float-right' uk-icon='chevron-down' hidden=''/>
                       </div>
                     </b:if>
-                    <div hidden='' id='toggle-bloglabel' class='uk-margin-small-top'>
+                    <div hidden='' id='toggle-bloglabel' class='toggle-label uk-margin-small-top'>
                       <ul class='uk-nav uk-nav-default' uk-nav=''>
                         <b:loop values='data:labels' var='label'>
                           <b:if cond='data:blog.url == data:label.url'>
