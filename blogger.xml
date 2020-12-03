@@ -1116,7 +1116,7 @@
                   </a>
                 </b:if>
                 <div class='toggle-archive uk-margin-small-top' hidden=''>
-                  <b:include cond='data:style == &quot;HIERARCHY&quot;' data='data' name='interval'/>
+                  <b:include data='data' name='interval'/>
                 </div>
               </div>
               <hr/>
@@ -1138,7 +1138,7 @@
                 <b:loop values='data:intervalData' var='interval'>
                   <li class='uk-parent'>                    
                     <a expr:href='data:interval.url'>
-                      <span uk-icon='icon:more' class='uk-margin-small-right'/>
+                      <span uk-icon='icon:more'/>
                       <data:interval.name/>
                       (<data:interval.post-count/>)
                     </a>
