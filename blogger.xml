@@ -969,6 +969,7 @@
                       <b:include cond='data:style == &quot;HIERARCHY&quot;' data='data' name='interval'/>
                     </div>
                   </div>
+                  <hr/>
                 </b:includable>               
                 <b:includable id='interval' var='intervalData'>
                   <ul class='uk-nav uk-nav-default uk-nav-parent-icon' uk-nav=''>
