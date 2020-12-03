@@ -65,7 +65,7 @@
         <b:section id='navbar-menu2' maxwidgets='1' name='navbar-menu2' showaddelement='yes'>
           <b:widget id='PageList2' locked='false' title='Pages' type='PageList' version='1'>
             <b:widget-settings>
-              <b:widget-setting name='pageListJson'><![CDATA[{'home': {'href': 'https://blog.tonayu.com/', 'title': 'Home', 'position': 0}}]]></b:widget-setting>
+              <b:widget-setting name='pageListJson'><![CDATA[{'home': {'href': 'https://blog.tonayu.com/', 'title': 'Home', 'position': 0}, 'link0': {'href': '#blog-archive', 'title': 'Archive', 'position': 1}, 'link1': {'href': '#blog-labels', 'title': 'Labels', 'position': 2}}]]></b:widget-setting>
               <b:widget-setting name='homeTitle'>Home</b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
@@ -956,7 +956,7 @@
                   <b:widget-setting name='frequency'>MONTHLY</b:widget-setting>
                 </b:widget-settings>
                 <b:includable id='main'>
-                  <div class='uk-panel uk-margin'>
+                  <div id='blog-archive' class='uk-panel uk-margin'>
                     <b:if cond='data:title != &quot;&quot;'>
                       <div uk-toggle='target: .toggle-archive'>
                         <span class='uk-margin-small-right' uk-icon='folder'/>
@@ -965,7 +965,7 @@
                         <span class='toggle-archive uk-float-right' uk-icon='chevron-down' hidden=''/>
                       </div>
                     </b:if>
-                    <div hidden='' id='toggle-blogarchive' class='toggle-archive uk-margin-small-top'>
+                    <div hidden='' class='toggle-archive uk-margin-small-top'>
                       <b:include cond='data:style == &quot;HIERARCHY&quot;' data='data' name='interval'/>
                     </div>
                   </div>
@@ -997,22 +997,7 @@
                       </ul>
                     </li>
                   </b:loop>
-                </b:includable>
-                <b:includable id='menu' var='data'>
-                  <form>
-                    <select class='uk-select' expr:id='data:widget.instanceId + &quot;_ArchiveMenu&quot;'>
-                      <option value=''>
-                        <data:title/>
-                      </option>
-                      <b:loop values='data:data' var='i'>
-                        <option expr:value='data:i.url'>
-                          <data:i.name/>
- (                          <data:i.post-count/>
-)</option>
-                      </b:loop>
-                    </select>
-                  </form>
-                </b:includable>
+                </b:includable>               
                 <b:includable id='posts' var='posts'>
                   <ul>
                     <b:loop values='data:posts' var='post'>
@@ -1047,7 +1032,7 @@
                   <b:widget-setting name='showFreqNumbers'>true</b:widget-setting>
                 </b:widget-settings>
                 <b:includable id='main'>
-                  <div class='uk-panel uk-margin'>
+                  <div id='blog-labels' class='uk-panel uk-margin'>
                     <b:if cond='data:title != &quot;&quot;'>
                       <div uk-toggle='target: .toggle-label'>
                         <span class='uk-margin-small-right' uk-icon='tag'/>
@@ -1056,7 +1041,7 @@
                         <span class='toggle-label uk-float-right' uk-icon='chevron-down' hidden=''/>
                       </div>
                     </b:if>
-                    <div hidden='' id='toggle-bloglabel' class='toggle-label uk-margin-small-top'>
+                    <div hidden='' class='toggle-label uk-margin-small-top'>
                       <ul class='uk-nav uk-nav-default' uk-nav=''>
                         <b:loop values='data:labels' var='label'>
                           <b:if cond='data:blog.url == data:label.url'>
