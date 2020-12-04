@@ -884,7 +884,7 @@
       var config = <data:post.commentConfig/>
 ;
 
-//                                                                                                                               <![CDATA[
+//                                                                                                                                             <![CDATA[
       var cursor = null;
       if (items && items.length > 0) {
         cursor = parseInt(items[items.length - 1].timestamp) + 1;
@@ -1090,218 +1090,223 @@
             </b:includable>
           </b:widget>
         </b:section>
-      </div>
-      <div class='uk-width-1-5@m'>
-        <b:section id='sidebar'>
-          <b:widget id='BlogArchive1' locked='false' title='Blog Archive' type='BlogArchive' version='1'>
-            <b:widget-settings>
-              <b:widget-setting name='showStyle'>HIERARCHY</b:widget-setting>
-              <b:widget-setting name='yearPattern'>yyyy</b:widget-setting>
-              <b:widget-setting name='showWeekEnd'>true</b:widget-setting>
-              <b:widget-setting name='monthPattern'>MMMM</b:widget-setting>
-              <b:widget-setting name='dayPattern'>MMM dd</b:widget-setting>
-              <b:widget-setting name='weekPattern'>MM/dd</b:widget-setting>
-              <b:widget-setting name='chronological'>false</b:widget-setting>
-              <b:widget-setting name='showPosts'>true</b:widget-setting>
-              <b:widget-setting name='frequency'>MONTHLY</b:widget-setting>
-            </b:widget-settings>
-            <b:includable id='main'>
-              <div class='uk-panel uk-margin' id='blog-archive'>
-                <b:if cond='data:title != &quot;&quot;'>
-                  <a class='uk-link-toggle uk-display-block' uk-toggle='target: .toggle-archive'>
-                    <span class='uk-margin-small-right' uk-icon='folder'/>
-                    <data:title/>
-                    <span class='toggle-archive uk-float-right' uk-icon='plus'/>
-                    <span class='toggle-archive uk-float-right' hidden='' uk-icon='minus'/>
-                  </a>
-                </b:if>
-                <div class='toggle-archive uk-margin-small-top' hidden=''>
-                  <b:include data='data' name='interval'/>
-                </div>
-              </div>
-              <hr/>
-            </b:includable>
-            <b:includable id='interval' var='intervalData'>
-              <ul class='uk-nav uk-nav-default uk-nav-parent-icon' uk-nav=''>
-                <b:loop values='data:intervalData' var='interval'>
-                  <li class='uk-parent'>
-                    <a expr:href='data:interval.url'>
-                      <data:interval.name/>
-                      (                      <data:interval.post-count/>
+          </div>
+          <div class='uk-width-1-5@m'>
+            <b:section id='sidebar'>
+            <b:widget id='BlogSearch1' locked='false' title='' type='BlogSearch'>
+    <b:includable id='main'>
+    <form  expr:action='data:blog.searchUrl'>
+    <b:attr cond='not data:view.isPreview' name='target' value='_top'/>
+<div class="uk-margin">
+  <div class="uk-inline">
+    <button class="uk-form-icon uk-form-icon-flip" uk-icon="icon: search"  title='search' type='submit' />
+    <input autocomplete='off'  class="uk-input" expr:value='data:view.isSearch ? data:view.search.query.escaped : &quot;&quot;' name='q' type="text" title='search'/>
+    </div>
+  </div>
+</form>
+  </b:includable>
+  </b:widget>
+              <b:widget id='BlogArchive1' locked='false' title='Blog Archive' type='BlogArchive' version='1'>
+                <b:widget-settings>
+                  <b:widget-setting name='showStyle'>HIERARCHY</b:widget-setting>
+                  <b:widget-setting name='yearPattern'>yyyy</b:widget-setting>
+                  <b:widget-setting name='showWeekEnd'>true</b:widget-setting>
+                  <b:widget-setting name='monthPattern'>MMMM</b:widget-setting>
+                  <b:widget-setting name='dayPattern'>MMM dd</b:widget-setting>
+                  <b:widget-setting name='weekPattern'>MM/dd</b:widget-setting>
+                  <b:widget-setting name='chronological'>false</b:widget-setting>
+                  <b:widget-setting name='showPosts'>true</b:widget-setting>
+                  <b:widget-setting name='frequency'>MONTHLY</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
+                  <div class='uk-panel uk-margin' id='blog-archive'>
+                    <b:if cond='data:title != &quot;&quot;'>
+                      <a class='uk-link-toggle uk-display-block' uk-toggle='target: .toggle-archive'>
+                        <span class='uk-margin-small-right' uk-icon='folder'/>
+                        <data:title/>
+                        <span class='toggle-archive uk-float-right' uk-icon='plus'/>
+                        <span class='toggle-archive uk-float-right' hidden='' uk-icon='minus'/>
+                      </a>
+                    </b:if>
+                    <div class='toggle-archive uk-margin-small-top' hidden=''>
+                      <b:include data='data' name='interval'/>
+                    </div>
+                  </div>
+                  <hr/>
+                </b:includable>
+                <b:includable id='interval' var='intervalData'>
+                  <ul class='uk-nav uk-nav-default uk-nav-parent-icon' uk-nav=''>
+                    <b:loop values='data:intervalData' var='interval'>
+                      <li class='uk-parent'>
+                        <a expr:href='data:interval.url'>
+                          <data:interval.name/>
+                      (                          <data:interval.post-count/>
 )</a>
-                    <b:include cond='data:interval.data' data='interval.data' name='intervalsub'/>
-                  </li>
-                </b:loop>
-              </ul>
-            </b:includable>
-            <b:includable id='intervalsub' var='intervalData'>
-              <ul class='uk-nav-sub'>
-                <b:loop values='data:intervalData' var='interval'>
-                  <li class='uk-parent'>
-                    <a expr:href='data:interval.url'>
-                      <span uk-icon='icon:more'/>
-                      <data:interval.name/>
-                      (                      <data:interval.post-count/>
-)
-                    </a>
-                    <b:include cond='data:interval.data' data='interval.data' name='interval'/>
-                    <b:include cond='data:interval.posts' data='interval.posts' name='posts'/>
-                  </li>
-                </b:loop>
-              </ul>
-            </b:includable>
-            <b:includable id='posts' var='posts'>
-              <ul class='uk-list uk-list-collapse uk-list-disc'>
-                <b:loop values='data:posts' var='post'>
-                  <li>
-                    <a expr:href='data:post.url'>
-                      <data:post.title/>
-                    </a>
-                  </li>
-                </b:loop>
-              </ul>
-            </b:includable>
-          </b:widget>
-          <b:widget id='Label1' locked='false' title='Labels' type='Label' version='1'>
-            <b:widget-settings>
-              <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
-              <b:widget-setting name='display'>LIST</b:widget-setting>
-              <b:widget-setting name='selectedLabelsList'/>
-              <b:widget-setting name='showType'>ALL</b:widget-setting>
-              <b:widget-setting name='showFreqNumbers'>true</b:widget-setting>
-            </b:widget-settings>
-            <b:includable id='main'>
-              <div class='uk-panel uk-margin' id='blog-labels'>
-                <b:if cond='data:title != &quot;&quot;'>
-                  <a class='uk-link-toggle uk-display-block' uk-toggle='target: .toggle-label'>
-                    <span class='uk-margin-small-right' uk-icon='tag'/>
-                    <data:title/>
-                    <span class='toggle-label uk-float-right' uk-icon='plus'/>
-                    <span class='toggle-label uk-float-right' hidden='' uk-icon='minus'/>
-                  </a>
-                </b:if>
-                <div class='toggle-label uk-margin-small-top' hidden=''>
-                  <ul class='uk-nav uk-nav-default'>
-                    <b:loop values='data:labels' var='label'>
-                      <b:if cond='data:blog.url == data:label.url'>
-                        <li class='uk-active'>
-                          <data:label.name/>
-                          <b:if cond='data:showFreqNumbers'>
-                            (                            <data:label.count/>
-)
-                          </b:if>
-                        </li>
-                        <b:else/>
-                        <li>
-                          <a expr:href='data:label.url'>
-                            <data:label.name/>
-                            <b:if cond='data:showFreqNumbers'>
-                              (                              <data:label.count/>
-)
-                            </b:if>
-                          </a>
-                        </li>
-                      </b:if>
+                        <b:include cond='data:interval.data' data='interval.data' name='intervalsub'/>
+                      </li>
                     </b:loop>
                   </ul>
-                </div>
-              </div>
-            </b:includable>
-          </b:widget>
-        </b:section>
-      </div>
-    </div>
-  </section>
-  <footer>
-    <div class='uk-tile uk-tile-secondary uk-padding-small'>
-      <div class='uk-grid-match uk-child-width-1-3@m' uk-grid=''>
-        <div>
-          <b:section class='uk-card uk-card-body uk-padding-remove' id='footer-1-2'>
-            <b:widget id='PopularPosts1' locked='false' title='Popular Posts' type='PopularPosts' version='1'>
-              <b:widget-settings>
-                <b:widget-setting name='numItemsToShow'>1</b:widget-setting>
-                <b:widget-setting name='showThumbnails'>false</b:widget-setting>
-                <b:widget-setting name='showSnippets'>false</b:widget-setting>
-                <b:widget-setting name='timeRange'>ALL_TIME</b:widget-setting>
-              </b:widget-settings>
-              <b:includable id='main'>
-                <b:if cond='data:title != &quot;&quot;'>
-                  <h3 class='uk-card-title'>
-                    <data:title/>
-                  </h3>
-                </b:if>
-                <dl>
-                  <b:loop values='data:posts' var='post'>
-                    <dt>
-                      <a expr:href='data:post.href'>
-                        <data:post.title/>
+                </b:includable>
+                <b:includable id='intervalsub' var='intervalData'>
+                  <ul class='uk-nav-sub'>
+                    <b:loop values='data:intervalData' var='interval'>
+                      <li class='uk-parent'>
+                        <a expr:href='data:interval.url'>
+                          <span uk-icon='icon:more'/>
+                          <data:interval.name/>
+                      (                          <data:interval.post-count/>
+)
+                        </a>
+                        <b:include cond='data:interval.data' data='interval.data' name='interval'/>
+                        <b:include cond='data:interval.posts' data='interval.posts' name='posts'/>
+                      </li>
+                    </b:loop>
+                  </ul>
+                </b:includable>
+                <b:includable id='posts' var='posts'>
+                  <ul class='uk-list uk-list-collapse uk-list-disc'>
+                    <b:loop values='data:posts' var='post'>
+                      <li>
+                        <a expr:href='data:post.url'>
+                          <data:post.title/>
+                        </a>
+                      </li>
+                    </b:loop>
+                  </ul>
+                </b:includable>
+              </b:widget>
+              <b:widget id='Label1' locked='false' title='Labels' type='Label' version='1'>
+                <b:widget-settings>
+                  <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
+                  <b:widget-setting name='display'>LIST</b:widget-setting>
+                  <b:widget-setting name='selectedLabelsList'/>
+                  <b:widget-setting name='showType'>ALL</b:widget-setting>
+                  <b:widget-setting name='showFreqNumbers'>true</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
+                  <div class='uk-panel uk-margin' id='blog-labels'>
+                    <b:if cond='data:title != &quot;&quot;'>
+                      <a class='uk-link-toggle uk-display-block' uk-toggle='target: .toggle-label'>
+                        <span class='uk-margin-small-right' uk-icon='tag'/>
+                        <data:title/>
+                        <span class='toggle-label uk-float-right' uk-icon='plus'/>
+                        <span class='toggle-label uk-float-right' hidden='' uk-icon='minus'/>
                       </a>
-                    </dt>
-                    <dd>
-                      <data:post.snippet/>
-                    </dd>
-                  </b:loop>
-                </dl>
-              </b:includable>
-            </b:widget>
-          </b:section>
+                    </b:if>
+                    <div class='toggle-label uk-margin-small-top' hidden=''>
+                      <ul class='uk-nav uk-nav-default'>
+                        <b:loop values='data:labels' var='label'>
+                          <b:if cond='data:blog.url == data:label.url'>
+                            <li class='uk-active'>
+                              <data:label.name/>
+                              <b:if cond='data:showFreqNumbers'>
+                            (                                <data:label.count/>
+)
+                              </b:if>
+                            </li>
+                            <b:else/>
+                            <li>
+                              <a expr:href='data:label.url'>
+                                <data:label.name/>
+                                <b:if cond='data:showFreqNumbers'>
+                              (                                  <data:label.count/>
+)
+                                </b:if>
+                              </a>
+                            </li>
+                          </b:if>
+                        </b:loop>
+                      </ul>
+                    </div>
+                  </div>
+                  <hr/>
+                </b:includable>
+              </b:widget>
+              <b:widget id='PopularPosts1' locked='false' title='Popular Posts' type='PopularPosts' version='1'>
+                <b:widget-settings>
+                  <b:widget-setting name='numItemsToShow'>1</b:widget-setting>
+                  <b:widget-setting name='showThumbnails'>false</b:widget-setting>
+                  <b:widget-setting name='showSnippets'>false</b:widget-setting>
+                  <b:widget-setting name='timeRange'>ALL_TIME</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
+                  <b:if cond='data:title != &quot;&quot;'>
+                    <div class='uk-display-block'>
+                      <span class='uk-margin-small-right' uk-icon='world'/>
+                      <data:title/>
+                    </div>
+                  </b:if>
+                  <dl class='uk-margin-small-top'>
+                    <b:loop values='data:posts' var='post'>
+                      <a expr:href='data:post.href' class='uk-link-toggle uk-display-block'>
+                        <dt>
+                          <data:post.title/>
+                        </dt>
+                        <dd>
+                          <data:post.snippet/>
+                        </dd>
+                      </a>
+                    </b:loop>
+                  </dl>
+                  <hr/>
+                </b:includable>
+              </b:widget>
+              <b:widget id='FeaturedPost1' locked='false' title='Featured Post' type='FeaturedPost' version='1'>
+                <b:widget-settings>
+                  <b:widget-setting name='showSnippet'>false</b:widget-setting>
+                  <b:widget-setting name='showPostTitle'>true</b:widget-setting>
+                  <b:widget-setting name='showFirstImage'>false</b:widget-setting>
+                  <b:widget-setting name='useMostRecentPost'>true</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
+                  <!-- Only display title if it's non-empty -->
+                  <b:if cond='data:title != &quot;&quot;'>
+                    <div class='uk-display-block'>
+                      <span class='uk-margin-small-right' uk-icon='bolt'/>
+                      <data:title/>
+                    </div>
+                  </b:if>
+                  <b:include name='content'/>
+                </b:includable>
+                <b:includable id='content'>
+                  <dl class='uk-margin-small-top'>
+                    <a expr:href='data:postUrl' class='uk-link-toggle uk-display-block'>
+                      <dt>
+                        <data:postTitle/>
+                      </dt>
+                      <dd>
+                        <data:postSummary/>
+                      </dd>
+                    </a>
+                  </dl>
+                </b:includable>
+              </b:widget>
+            </b:section>
+          </div>
         </div>
-        <div>
-          <b:section class='uk-card uk-card-body uk-padding-remove' id='footer-2-2'>
-            <b:widget id='FeaturedPost1' locked='false' title='Featured Post' type='FeaturedPost' version='1'>
+      </section>
+      <footer>
+        <div class='uk-tile uk-tile-secondary uk-padding-small'>
+          <b:section id='site-info'>
+            <b:widget id='BloggerButton1' locked='false' title='' type='BloggerButton' version='1'>
               <b:widget-settings>
-                <b:widget-setting name='showSnippet'>false</b:widget-setting>
-                <b:widget-setting name='showPostTitle'>true</b:widget-setting>
-                <b:widget-setting name='showFirstImage'>false</b:widget-setting>
-                <b:widget-setting name='useMostRecentPost'>true</b:widget-setting>
+                <b:widget-setting name='button'>https://resources.blogblog.com/html/buttons/blogger-powerby-blue.gif</b:widget-setting>
               </b:widget-settings>
               <b:includable id='main'>
-                <!-- Only display title if it's non-empty -->
-                <b:if cond='data:title != &quot;&quot;'>
-                  <h3 class='uk-card-title'>
-                    <data:title/>
-                  </h3>
-                </b:if>
-                <b:include name='content'/>
-              </b:includable>
-              <b:includable id='content'>
-                <dt>
-                  <a expr:href='data:postUrl'>
-                    <data:postTitle/>
-                  </a>
-                </dt>
-                <dd>
-                  <data:postSummary/>
-                </dd>
+                <a href='https://www.blogger.com'>
+                  <img alt='Powered By Blogger' expr:src='data:fullButton'/>
+                </a>
               </b:includable>
             </b:widget>
           </b:section>
         </div>
-        <div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-        </div>
-      </div>
-      <b:section id='site-info'>
-        <b:widget id='BloggerButton1' locked='false' title='' type='BloggerButton' version='1'>
-          <b:widget-settings>
-            <b:widget-setting name='button'>https://resources.blogblog.com/html/buttons/blogger-powerby-blue.gif</b:widget-setting>
-          </b:widget-settings>
-          <b:includable id='main'>
-            <hr/>
-            <a href='https://www.blogger.com'>
-              <img alt='Powered By Blogger' expr:src='data:fullButton'/>
-            </a>
-          </b:includable>
-        </b:widget>
-      </b:section>
+      </footer>
     </div>
-  </footer>
-</div>
-<a class='uk-icon-button uk-position-bottom-right uk-position-fixed' href='javascript:void(0);' ui-icon='icon:chevron-up;' uk-scroll='' uk-totop=''/>
-<!--all end-->
-<!--scripts begin-->
-<script src='https://cdn.jsdelivr.net/npm/uikit@3.5.10/dist/js/uikit.min.js'/>
-<script src='https://cdn.jsdelivr.net/npm/uikit@3.5.10/dist/js/uikit-icons.min.js'/>
-<!--scripts end-->
-</body>
+    <a class='uk-icon-button uk-position-bottom-right uk-position-fixed' href='javascript:void(0);' ui-icon='icon:chevron-up;' uk-scroll='' uk-totop=''/>
+    <!--all end-->
+    <!--scripts begin-->
+    <script src='https://cdn.jsdelivr.net/npm/uikit@3.5.10/dist/js/uikit.min.js'/>
+    <script src='https://cdn.jsdelivr.net/npm/uikit@3.5.10/dist/js/uikit-icons.min.js'/>
+    <!--scripts end-->
+  </body>
 </html>
