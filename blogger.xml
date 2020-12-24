@@ -16,7 +16,7 @@
     <b:template-skin/>
     <b:include data='blog' name='google-analytics'/>
     <!--css begin-->
-    <link href='https://cdn.jsdelivr.net/npm/uikit@3.5.10/dist/css/uikit.min.css' rel='stylesheet'/>
+    <link href='https://cdn.jsdelivr.net/npm/uikit@3.6.5/dist/css/uikit.min.css' rel='stylesheet'/>
     <!--css end-->
   </head>
   <body>
@@ -31,7 +31,7 @@
     </b:if>
     <div class='wrap'>
       <header class='uk-light uk-background-secondary'>
-        <nav class='uk-navbar uk-navbar-container uk-navbar-transparent' uk-navbar=''>
+        <nav class='uk-navbar uk-navbar-transparent' uk-navbar=''>
           <div class='uk-navbar-left'>
             <a class='uk-navbar-item uk-logo' expr:href='data:blog.homepageUrl'>
               <img class='uk-margin-small-right' src='https://lh3.googleusercontent.com/8VNaKqs9G7KM2zD2U9pphFryMNHB-El7EvCl0cACrposVIHvkko3ccViXkX8=s32'/>
@@ -84,13 +84,13 @@
                 </div>
               </b:includable>
             </b:widget>
-            <b:widget id='BlogSearch2' locked='false' title='Search This Blog' type='BlogSearch'>
+            <b:widget id='BlogSearch2' locked='false' title='Search This Blog' type='BlogSearch' version='1'>
               <b:includable id='main'>
                 <div class='uk-padding-small uk-padding-remove-top'>
                   <form class='uk-search uk-search-default uk-width-1-1' expr:action='data:blog.searchUrl'>
                     <b:attr cond='not data:view.isPreview' name='target' value='_top'/>
-                    <button uk-search-icon='' class="uk-search-icon-flip" type='submit'></button>
-                    <input class="uk-search-input" type="search" placeholder="Search..." autocomplete='off' expr:value='data:view.isSearch ? data:view.search.query.escaped : &quot;&quot;' name='q' title='search'/>
+                    <button class='uk-search-icon-flip' type='submit' uk-search-icon=''/>
+                    <input autocomplete='off' class='uk-search-input' expr:value='data:view.isSearch ? data:view.search.query.escaped : &quot;&quot;' name='q' placeholder='Search...' title='search' type='search'/>
                   </form>
                 </div>
               </b:includable>
@@ -98,22 +98,24 @@
           </b:section>
         </div>
       </header>
-      <section class='uk-padding-small'>
-        <div class='uk-grid-divider' uk-grid=''>
-          <div class='uk-width-4-5@m'>
-            <b:section class='main' id='main' name='Main' showaddelement='no'>
+      <section class='uk-container uk-container-small'>
+        <div class="uk-grid-small" uk-grid=''>
+          <div class='uk-width-2-3@m'>
+            <b:section class='main uk-padding-small' id='main' name='Main' showaddelement='no'>
               <b:widget id='Blog1' locked='false' title='Blog Posts' type='Blog' version='1'>
                 <b:widget-settings>
                   <b:widget-setting name='showDateHeader'>true</b:widget-setting>
-                  <b:widget-setting name='style.textcolor'>#000000</b:widget-setting>
+                  <b:widget-setting name='style.textcolor'>#666666</b:widget-setting>
                   <b:widget-setting name='showShareButtons'>false</b:widget-setting>
+                  <b:widget-setting name='authorLabel'>By</b:widget-setting>
                   <b:widget-setting name='showCommentLink'>true</b:widget-setting>
-                  <b:widget-setting name='style.urlcolor'>#008000</b:widget-setting>
+                  <b:widget-setting name='style.urlcolor'>#666666</b:widget-setting>
                   <b:widget-setting name='showAuthor'>true</b:widget-setting>
                   <b:widget-setting name='disableGooglePlusShare'>true</b:widget-setting>
-                  <b:widget-setting name='style.linkcolor'>#0000ff</b:widget-setting>
+                  <b:widget-setting name='style.linkcolor'>#2288bb</b:widget-setting>
                   <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
                   <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+                  <b:widget-setting name='timestampLabel'>-</b:widget-setting>
                   <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
                   <b:widget-setting name='style.layout'>1x1</b:widget-setting>
                   <b:widget-setting name='showLabels'>true</b:widget-setting>
@@ -846,7 +848,7 @@
                 <b:includable id='status-message'>
                   <b:if cond='data:navMessage'>
                     <div class='uk-alert-primary' uk-alert=''>
-                      <a class="uk-alert-close" uk-close=''></a>
+                      <a class='uk-alert-close' uk-close=''/>
                       <div class='status-msg-body'>
                         <data:navMessage/>
                       </div>
@@ -890,7 +892,7 @@
       var config = <data:post.commentConfig/>
 ;
 
-//                                                                                                                                                                         <![CDATA[
+//                                                                                                                                                                                                     <![CDATA[
       var cursor = null;
       if (items && items.length > 0) {
         cursor = parseInt(items[items.length - 1].timestamp) + 1;
@@ -1097,19 +1099,19 @@
           </b:widget>
         </b:section>
       </div>
-      <div class='uk-width-1-5@m'>
-        <b:section id='sidebar'>
-          <b:widget id='BlogSearch1' locked='false' title='Search This Blog' type='BlogSearch'>
+      <div class='uk-width-1-3@m uk-background-muted'>
+        <b:section class='uk-padding-small uk-padding-remove-left' id='sidebar'>
+          <b:widget id='BlogSearch1' locked='false' title='Search This Blog' type='BlogSearch' version='1'>
             <b:includable id='main'>
               <form class='uk-search uk-search-default uk-width-1-1' expr:action='data:blog.searchUrl'>
                 <b:attr cond='not data:view.isPreview' name='target' value='_top'/>
-                <button uk-search-icon='' class="uk-search-icon-flip" type='submit'></button>
-                <input class="uk-search-input" type="search" placeholder="Search..." autocomplete='off' expr:value='data:view.isSearch ? data:view.search.query.escaped : &quot;&quot;' name='q' title='search'/>
+                <button class='uk-search-icon-flip' type='submit' uk-search-icon=''/>
+                <input autocomplete='off' class='uk-search-input' expr:value='data:view.isSearch ? data:view.search.query.escaped : &quot;&quot;' name='q' placeholder='Search...' title='search' type='search'/>
               </form>
               <hr/>
             </b:includable>
           </b:widget>
-          <b:widget id='BlogArchive1' locked='false' title='Blog Archive' type='BlogArchive' version='1'>
+          <b:widget id='BlogArchive1' locked='false' title='Archive' type='BlogArchive' version='1'>
             <b:widget-settings>
               <b:widget-setting name='showStyle'>HIERARCHY</b:widget-setting>
               <b:widget-setting name='yearPattern'>yyyy</b:widget-setting>
@@ -1136,6 +1138,18 @@
                 </div>
               </div>
               <hr/>
+            </b:includable>
+            <b:includable id='flat' var='data'>
+              <ul class='flat'>
+                <b:loop values='data:data' var='i'>
+                  <li class='archivedate'>
+                    <a expr:href='data:i.url'>
+                      <data:i.name/>
+                    </a> (                    <data:i.post-count/>
+)
+                  </li>
+                </b:loop>
+              </ul>
             </b:includable>
             <b:includable id='interval' var='intervalData'>
               <ul class='uk-nav uk-nav-default uk-nav-parent-icon' uk-nav=''>
@@ -1166,6 +1180,19 @@
                 </b:loop>
               </ul>
             </b:includable>
+            <b:includable id='menu' var='data'>
+              <select expr:id='data:widget.instanceId + &quot;_ArchiveMenu&quot;'>
+                <option value=''>
+                  <data:title/>
+                </option>
+                <b:loop values='data:data' var='i'>
+                  <option expr:value='data:i.url'>
+                    <data:i.name/>
+ (                    <data:i.post-count/>
+)</option>
+                </b:loop>
+              </select>
+            </b:includable>
             <b:includable id='posts' var='posts'>
               <ul class='uk-list uk-list-collapse uk-list-disc'>
                 <b:loop values='data:posts' var='post'>
@@ -1176,6 +1203,19 @@
                   </li>
                 </b:loop>
               </ul>
+            </b:includable>
+            <b:includable id='toggle' var='interval'>
+              <a class='toggle' href='javascript:void(0)'>
+                <span expr:class='&quot;zippy&quot; + (data:interval.expclass == &quot;expanded&quot; ? &quot; toggle-open&quot; : &quot;&quot;)'>
+                  <b:if cond='data:interval.expclass == &quot;expanded&quot;'>
+        &#9660;&#160;
+                    <b:elseif cond='data:blog.languageDirection == &quot;rtl&quot;'/>
+        &#9668;&#160;
+                    <b:else/>
+        &#9658;&#160;
+                  </b:if>
+                </span>
+              </a>
             </b:includable>
           </b:widget>
           <b:widget id='Label1' locked='false' title='Labels' type='Label' version='1'>
@@ -1241,7 +1281,7 @@
               </b:if>
               <dl class='uk-margin-small-top'>
                 <b:loop values='data:posts' var='post'>
-                  <a expr:href='data:post.href' class='uk-link-toggle uk-display-block'>
+                  <a class='uk-link-toggle uk-display-block' expr:href='data:post.href'>
                     <dt>
                       <data:post.title/>
                     </dt>
@@ -1273,7 +1313,7 @@
             </b:includable>
             <b:includable id='content'>
               <dl class='uk-margin-small-top'>
-                <a expr:href='data:postUrl' class='uk-link-toggle uk-display-block'>
+                <a class='uk-link-toggle uk-display-block' expr:href='data:postUrl'>
                   <dt>
                     <data:postTitle/>
                   </dt>
@@ -1288,9 +1328,9 @@
       </div>
     </div>
   </section>
-  <footer>
-    <div class='uk-tile uk-tile-secondary uk-padding-small'>
-      <b:section id='site-info'>
+  <footer class='uk-light uk-background-secondary'>
+    <div class='uk-container uk-container-small'>
+      <b:section class='uk-tile  uk-padding-small' id='site-info'>
         <b:widget id='BloggerButton1' locked='false' title='' type='BloggerButton' version='1'>
           <b:widget-settings>
             <b:widget-setting name='button'>https://resources.blogblog.com/html/buttons/blogger-powerby-blue.gif</b:widget-setting>
@@ -1302,14 +1342,14 @@
           </b:includable>
         </b:widget>
       </b:section>
+      <a class='uk-icon-button uk-position-bottom-right uk-position-fixed' href='javascript:void(0);' ui-icon='icon:chevron-up;' uk-scroll='' uk-totop=''/>
     </div>
   </footer>
 </div>
-<a class='uk-icon-button uk-position-bottom-right uk-position-fixed' href='javascript:void(0);' ui-icon='icon:chevron-up;' uk-scroll='' uk-totop=''/>
 <!--all end-->
 <!--scripts begin-->
-<script src='https://cdn.jsdelivr.net/npm/uikit@3.5.10/dist/js/uikit.min.js'/>
-<script src='https://cdn.jsdelivr.net/npm/uikit@3.5.10/dist/js/uikit-icons.min.js'/>
+<script src='https://cdn.jsdelivr.net/npm/uikit@3.6.5/dist/js/uikit.min.js'/>
+<script src='https://cdn.jsdelivr.net/npm/uikit@3.6.5/dist/js/uikit-icons.min.js'/>
 <!--scripts end-->
 </body>
 </html>
