@@ -556,7 +556,7 @@
                   </ul> <hr/>
                 </b:includable>
                 <b:includable id='post' var='post'>
-                  <article class='uk-article'>
+                  <article class='uk-article' uk-lightbox=''>
                     <div class='post hentry uncustomized-post-template' itemprop='blogPost' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
                       <b:if cond='data:post.firstImageUrl'>
                         <meta expr:content='data:post.firstImageUrl' itemprop='image_url'/>
@@ -1156,7 +1156,7 @@
                   <ul class='uk-nav uk-nav-default'>
                     <b:loop values='data:labels' var='label'>
                       <b:if cond='data:blog.url == data:label.url'>
-                        <li class='uk-active'>
+                        <li class='uk-active uk-inline'>
                           <data:label.name/>
                           <b:if cond='data:showFreqNumbers'>
                             (                            <data:label.count/>
@@ -1164,7 +1164,7 @@
                           </b:if>
                         </li>
                         <b:else/>
-                        <li>
+                        <li class='uk-inline'>
                           <a expr:href='data:label.url'>
                             <data:label.name/>
                             <b:if cond='data:showFreqNumbers'>
@@ -1180,7 +1180,7 @@
               </div>
               <hr/>
             </b:includable>
-          </b:widget>          
+          </b:widget>
         </b:section>
       </div>
     </div>
