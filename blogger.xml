@@ -11,7 +11,7 @@
     <!--/css-->
     <link href='https://cdn.jsdelivr.net/npm/uikit@3.6.8/dist/css/uikit.min.css' rel='stylesheet'/>
     <!--css/-->
-    <b:skin><![CDATA[.quickedit{display:none;}article img{border:1;}]]></b:skin>
+    <b:skin><![CDATA[.quickedit{display:none;}]]></b:skin>
     <b:template-skin/>
     <b:include data='blog' name='google-analytics'/>
   </head>
