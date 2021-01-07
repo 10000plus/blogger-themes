@@ -1180,72 +1180,7 @@
               </div>
               <hr/>
             </b:includable>
-          </b:widget>
-          <b:widget id='PopularPosts1' locked='false' title='Popular Posts' type='PopularPosts' version='1'>
-            <b:widget-settings>
-              <b:widget-setting name='numItemsToShow'>1</b:widget-setting>
-              <b:widget-setting name='showThumbnails'>true</b:widget-setting>
-              <b:widget-setting name='showSnippets'>false</b:widget-setting>
-              <b:widget-setting name='timeRange'>ALL_TIME</b:widget-setting>
-            </b:widget-settings>
-            <b:includable id='main'>
-              <b:if cond='data:title != &quot;&quot;'>
-                <div class='uk-display-block'>
-                  <span class='uk-margin-small-right' uk-icon='world'/>
-                  <data:title/>
-                </div>
-              </b:if>
-              <dl class='uk-margin-small-top'>
-                <b:loop values='data:posts' var='post'>
-                  <a class='uk-link-toggle uk-display-block' expr:href='data:post.href'>
-                    <dt>
-                      <data:post.title/>
-                    </dt>
-                    <dd>
-                      <data:post.snippet/>
-                       <b:if cond='data:showThumbnails and data:postFirstImage != &quot;&quot;'>
-      <img expr:src='data:postFirstImage'/>
-    </b:if>
-                    </dd>
-                  </a>
-                </b:loop>
-              </dl>
-              <hr/>
-            </b:includable>
-          </b:widget>
-          <b:widget id='FeaturedPost1' locked='false' title='Featured Post' type='FeaturedPost' version='1'>
-            <b:widget-settings>
-              <b:widget-setting name='showSnippet'>false</b:widget-setting>
-              <b:widget-setting name='showPostTitle'>true</b:widget-setting>
-              <b:widget-setting name='showFirstImage'>true</b:widget-setting>
-              <b:widget-setting name='useMostRecentPost'>true</b:widget-setting>
-            </b:widget-settings>
-            <b:includable id='main'>
-              <!-- Only display title if it's non-empty -->
-              <b:if cond='data:title != &quot;&quot;'>
-                <div class='uk-display-block'>
-                  <span class='uk-margin-small-right' uk-icon='bolt'/>
-                  <data:title/>
-                </div>
-              </b:if>
-              <b:include name='content'/>
-            </b:includable>
-            <b:includable id='content'>
-              <dl class='uk-margin-small-top'>
-                <a class='uk-link-toggle uk-display-block' expr:href='data:postUrl'>
-                  <dt>
-                    <data:postTitle/>
-                  </dt>
-                  <dd>
-                    <data:postSummary/>
-                     <b:if cond='data:showFirstImage and data:postFirstImage != &quot;&quot;'>
-      <img expr:src='data:postFirstImage'/>
-    </b:if>
-                  </dd>
-                </a>
-              </dl>
-            </b:includable>
-          </b:widget>
+          </b:widget>          
         </b:section>
       </div>
     </div>
