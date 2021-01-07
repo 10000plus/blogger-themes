@@ -11,7 +11,7 @@
     <!--/css-->
     <link href='https://cdn.jsdelivr.net/npm/uikit@3.6.8/dist/css/uikit.min.css' rel='stylesheet'/>
     <!--css/-->
-    <b:skin><![CDATA[.quickedit{display:none;}article canvas,article img,article video{max-width:100% !important;}]]></b:skin>
+    <b:skin><![CDATA[.quickedit{display:none;}]]></b:skin>
     <b:template-skin/>
     <b:include data='blog' name='google-analytics'/>
   </head>
@@ -105,6 +105,7 @@
                   <b:widget-setting name='authorLabel'>By</b:widget-setting>
                   <b:widget-setting name='disableGooglePlusShare'>true</b:widget-setting>
                   <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+                  <b:widget-setting name='timestampLabel'>时间&#65306;</b:widget-setting>
                   <b:widget-setting name='reactionsLabel'>反应&#65306;</b:widget-setting>
                   <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
                   <b:widget-setting name='style.layout'>1x1</b:widget-setting>
@@ -147,7 +148,7 @@
                           </h3>
                         </b:if>
                         <b:if cond='data:post.isDateStart'>
-          &lt;div class=&quot;date-posts&quot;&gt;
+          &lt;div class=&quot;date-posts&quot; &gt;
                         </b:if>
                         <div class='post-outer'>
                           <b:include data='post' name='post'/>
@@ -567,7 +568,7 @@
                       <b:if cond='data:post.title'>
                         <h3 class='uk-article-title' itemprop='name'>
                           <b:if cond='data:post.link or (data:post.url and data:blog.url != data:post.url)'>
-                            <a expr:href='data:post.link ? data:post.link : data:post.url'>
+                            <a class='uk-link-heading' expr:href='data:post.link ? data:post.link : data:post.url'>
                               <data:post.title/>
                             </a>
                             <b:else/>
@@ -1183,7 +1184,7 @@
           <b:widget id='PopularPosts1' locked='false' title='Popular Posts' type='PopularPosts' version='1'>
             <b:widget-settings>
               <b:widget-setting name='numItemsToShow'>1</b:widget-setting>
-              <b:widget-setting name='showThumbnails'>false</b:widget-setting>
+              <b:widget-setting name='showThumbnails'>true</b:widget-setting>
               <b:widget-setting name='showSnippets'>false</b:widget-setting>
               <b:widget-setting name='timeRange'>ALL_TIME</b:widget-setting>
             </b:widget-settings>
@@ -1202,6 +1203,9 @@
                     </dt>
                     <dd>
                       <data:post.snippet/>
+                       <b:if cond='data:showThumbnails and data:postFirstImage != &quot;&quot;'>
+      <img expr:src='data:postFirstImage'/>
+    </b:if>
                     </dd>
                   </a>
                 </b:loop>
@@ -1213,7 +1217,7 @@
             <b:widget-settings>
               <b:widget-setting name='showSnippet'>false</b:widget-setting>
               <b:widget-setting name='showPostTitle'>true</b:widget-setting>
-              <b:widget-setting name='showFirstImage'>false</b:widget-setting>
+              <b:widget-setting name='showFirstImage'>true</b:widget-setting>
               <b:widget-setting name='useMostRecentPost'>true</b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
@@ -1234,6 +1238,9 @@
                   </dt>
                   <dd>
                     <data:postSummary/>
+                     <b:if cond='data:showFirstImage and data:postFirstImage != &quot;&quot;'>
+      <img expr:src='data:postFirstImage'/>
+    </b:if>
                   </dd>
                 </a>
               </dl>
