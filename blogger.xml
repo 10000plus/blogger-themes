@@ -11,7 +11,7 @@
     <!--/css-->
     <link href='https://cdn.jsdelivr.net/npm/uikit@3.6.8/dist/css/uikit.min.css' rel='stylesheet'/>
     <!--css/-->
-    <b:skin><![CDATA[.quickedit{display:none;}]]></b:skin>
+    <b:skin><![CDATA[.quickedit{display:none;}article img{border:1;}]]></b:skin>
     <b:template-skin/>
     <b:include data='blog' name='google-analytics'/>
   </head>
@@ -157,7 +157,7 @@
 
                         <!-- Ad -->
                         <b:if cond='data:post.includeAd'>
-                          <div class='inline-ad'>
+                          <div class='inline-ad uk-margin'>
                             <data:adCode/>
                           </div>
                         </b:if>
@@ -336,14 +336,14 @@
                 <b:includable id='feedLinks'>
                   <b:if cond='data:blog.pageType != &quot;item&quot;'>                    <!-- Blog feed links -->
                     <b:if cond='data:feedLinks'>
-                      <div class='blog-feeds'>
+                      <div class='uk-margin'>
                         <b:include data='feedLinks' name='feedLinksBody'/>
                       </div>
                     </b:if>
 
                     <b:else/>
                     <!--Post feed links -->
-                    <div class='post-feeds'>
+                    <div class='uk-margin'>
                       <b:loop values='data:posts' var='post'>
                         <b:include cond='data:post.allowComments and data:post.feedLinks' data='post.feedLinks' name='feedLinksBody'/>
                       </b:loop>
