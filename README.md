@@ -1,4 +1,3 @@
 # Blogger-themes
-A UIkit 3 theme for blogger.<br/>
-Use <a href='https://getuikit.com/'>UIkit</a>.<br/>
+A demo theme for blogger.<br/>
 Host on <a href='https://blogger.com/'>Blogger</a>.<br/>
