@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:js='false' b:layoutsVersion='3' b:responsive='true' b:templateVersion='1.3.3' b:version='2' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale'
+  xmlns='http://www.w3.org/1999/xhtml'
+  xmlns:b='http://www.google.com/2005/gml/b'
+  xmlns:data='http://www.google.com/2005/gml/data'
+  xmlns:expr='http://www.google.com/2005/gml/expr'>
+  <head>
+    <meta charset='utf-8'/>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+    <title>
+      <data:blog.pageTitle/>
+    </title>
+    <b:include data='blog' name='all-head-content'/>
+    <link crossorigin='anonymous' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' rel='stylesheet'/>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css' rel='stylesheet'/>
+    <b:skin version='1.3.3'><![CDATA[.quickedit{display:none;}]]></b:skin>
+    <b:include data='blog' name='google-analytics'/>
+  </head>
+  <body>
+    <b:section id='tonayu'/>
+    <div class='position-fixed float-start w-auto mw-25 h-100 start-0 overflow-auto bg-secondary text-white shadow'>
+      <b:section class='p-5' id='nav-menu1' maxwidgets='1' name='nav-menu1' showaddelement='yes'>
+        <b:widget id='PageList1' locked='true' title='Pages' type='PageList' version='2' visible='true'>
+          <b:widget-settings>
+            <b:widget-setting name='pageListJson'><![CDATA[{'home': {'href': '/', 'title': 'Home', 'position': 0}, 'link0': {'href': '/p/contact.html', 'title': 'Contact', 'position': 1}, 'link1': {'href': '/p/about.html', 'title': 'About', 'position': 2}}]]></b:widget-setting>
+            <b:widget-setting name='homeTitle'>Home</b:widget-setting>
+          </b:widget-settings>
+          <b:includable id='main'>
+            <nav class='nav flex-column'>
+              <a class='nav-link text-light' href='/'>
+                <i class='bi bi-bootstrap fs-1'/>
+              </a>
+              <b:loop values='data:links' var='link'>
+                <a class='nav-link text-light' expr:href='data:link.href'>
+                  <b:class cond='data:link.isCurrentPage' name='active'/>
+                  <data:link.title/>
+                </a>
+              </b:loop>
+            </nav>
+          </b:includable>
+          <b:includable id='content'/>
+          <b:includable id='overflowButton'/>
+          <b:includable id='overflowablePageList'/>
+          <b:includable id='pageLink'/>
+          <b:includable id='pageList'/>
+        </b:widget>
+      </b:section>
+    </div>
+    <main class='position-relative float-end w-75 mw-75 h-auto overflow-auto'>
+      <div class='container'>
+        <b:section class='main mx-auto px-3 my-5' id='main' name='Main' showaddelement='no'>
+          <b:widget id='Blog1' locked='false' title='Blog Posts' type='Blog' version='2' visible='true'>
+            <b:widget-settings>
+              <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+              <b:widget-setting name='style.textcolor'>#000000</b:widget-setting>
+              <b:widget-setting name='showShareButtons'>false</b:widget-setting>
+              <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+              <b:widget-setting name='style.urlcolor'>#008000</b:widget-setting>
+              <b:widget-setting name='showAuthor'>true</b:widget-setting>
+              <b:widget-setting name='disableGooglePlusShare'>true</b:widget-setting>
+              <b:widget-setting name='style.linkcolor'>#0000ff</b:widget-setting>
+              <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+              <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+              <b:widget-setting name='timestampLabel'/>
+              <b:widget-setting name='reactionsLabel'/>
+              <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+              <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+              <b:widget-setting name='showLabels'>true</b:widget-setting>
+              <b:widget-setting name='showLocation'>true</b:widget-setting>
+              <b:widget-setting name='postLabelsLabel'/>
+              <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+              <b:widget-setting name='postsPerAd'>1</b:widget-setting>
+              <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+              <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+              <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+              <b:widget-setting name='showReactions'>false</b:widget-setting>
+            </b:widget-settings>
+            <b:includable id='main'/>
+            <b:includable id='aboutPostAuthor'/>
+            <b:includable id='addComments'/>
+            <b:includable id='blogThisShare'/>
+            <b:includable id='bylineByName' var='byline'/>
+            <b:includable id='bylineRegion' var='regionItems'/>
+            <b:includable id='commentAuthorAvatar'/>
+            <b:includable id='commentDeleteIcon' var='comment'/>
+            <b:includable id='commentForm' var='post'/>
+            <b:includable id='commentFormIframeSrc' var='post'/>
+            <b:includable id='commentItem' var='comment'/>
+            <b:includable id='commentList' var='comments'/>
+            <b:includable id='commentPicker' var='post'/>
+            <b:includable id='comments' var='post'/>
+            <b:includable id='commentsLink'/>
+            <b:includable id='commentsLinkIframe'/>
+            <b:includable id='commentsTitle'/>
+            <b:includable id='defaultAdUnit'/>
+            <b:includable id='emailPostIcon'/>
+            <b:includable id='facebookShare'/>
+            <b:includable id='feedLinks'/>
+            <b:includable id='feedLinksBody' var='links'/>
+            <b:includable id='footerBylines'/>
+            <b:includable id='googlePlusShare'/>
+            <b:includable id='headerByline'/>
+            <b:includable id='homePageLink'/>
+            <b:includable id='iframeComments' var='post'/>
+            <b:includable id='inlineAd' var='post'/>
+            <b:includable id='linkShare'/>
+            <b:includable id='nextPageLink'/>
+            <b:includable id='otherSharingButton'/>
+            <b:includable id='platformShare'/>
+            <b:includable id='post' var='post'/>
+            <b:includable id='postAuthor'/>
+            <b:includable id='postBody' var='post'/>
+            <b:includable id='postBodySnippet' var='post'/>
+            <b:includable id='postCommentsAndAd' var='post'/>
+            <b:includable id='postCommentsLink'/>
+            <b:includable id='postFooter' var='post'/>
+            <b:includable id='postFooterAuthorProfile' var='post'/>
+            <b:includable id='postHeader' var='post'/>
+            <b:includable id='postJumpLink' var='post'/>
+            <b:includable id='postLabels'/>
+            <b:includable id='postLocation'/>
+            <b:includable id='postMeta' var='post'/>
+            <b:includable id='postMetadataJSONImage'/>
+            <b:includable id='postMetadataJSONPublisher'/>
+            <b:includable id='postPagination'/>
+            <b:includable id='postReactions'/>
+            <b:includable id='postShareButtons'/>
+            <b:includable id='postTimestamp'/>
+            <b:includable id='postTitle' var='post'/>
+            <b:includable id='previousPageLink'/>
+            <b:includable id='sharingButton'/>
+            <b:includable id='sharingButtonContent'/>
+            <b:includable id='sharingButtons'/>
+            <b:includable id='sharingButtonsMenu'/>
+            <b:includable id='sharingPlatformIcon'/>
+            <b:includable id='threadedCommentForm' var='post'/>
+            <b:includable id='threadedCommentJs' var='post'/>
+            <b:includable id='threadedComments' var='post'/>
+          </b:widget>
+        </b:section>
+      </div>
+    </main>
+    <script crossorigin='anonymous' integrity='sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM' src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js'/>
+  </body>
+</html>
